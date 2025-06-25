@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="xcopy &quot;$(TargetDir)*.dll&quot; &quot;F:\BoxMaker\Boxmaker\boxmaker_Data\Managed\&quot; /Y" />
+		<Exec Command="start F:\BoxMaker\Boxmaker\boxmaker.exe" />
+	</Target>
+	
+  <PropertyGroup>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net20</TargetFramework>
+    <Platforms>AnyCPU;x86</Platforms>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>10.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>..\Boxmaker\boxmaker_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>..\Boxmaker\boxmaker_Data\Managed\System.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
